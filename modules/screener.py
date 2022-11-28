@@ -13,6 +13,11 @@ def run(**args):
         # Generate the PNG
         png = mss.tools.to_png(sct_img.rgb, sct_img.size)
         print(png)
-        with open(png, "rb") as image:
+        #
+        # # Save png to file
+        with open('screenshot.png', 'w') as f:
+            f.write(png)
+
+        with open('screenshot.png', "rb") as image:
             encoded_string = base64.b64encode(image)
     return(encoded_string)
