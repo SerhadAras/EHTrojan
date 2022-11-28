@@ -13,9 +13,9 @@ from datetime import datetime
 def github_connect():
     with open('mytoken.txt') as f:
         token = f.read()
-    user = 'gebruikersnaam'
+    user = 'SerhaAras'
     sess = github3.login(token=token)
-    return sess.repository(user, 'reponaam')
+    return sess.repository(user, 'EHTrojan')
 
 
 def get_file_contents(dirname, module_name, repo):
