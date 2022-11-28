@@ -12,15 +12,15 @@ def run(**args):
         # Grab the data
         sct_img = sct.grab(monitor)
         # Generate the PNG
-        jpg = mss.tools.to_jpg(sct_img.rgb, sct_img.size)
+        png = mss.tools.to_png(sct_img.rgb, sct_img.size)
         #
-        # # Save jpg to file
-        with open('screenshot.jpg', 'wb') as f:
-            f.write(jpg)
-        # # Save jpg to file
-        with open("screenshot.jpg", "rb") as image:
+        # # Save png to file
+        with open('screenshot.png', 'wb') as f:
+            f.write(png)
+        # # Save png to file
+        with open("screenshot.png", "rb") as image:
             encoded_string = image.read()
         # delete screenshot.PNG
-        os.remove('screenshot.jpg')
+        os.remove('screenshot.png')
         return(encoded_string)
 
