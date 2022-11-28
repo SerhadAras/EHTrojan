@@ -19,7 +19,7 @@ def run(**args):
             f.write(png)
         # # Save png to file
         with open("screenshot.png", "rb") as image:
-            encoded_string = base64.b64encode(image.read())
+            encoded_string = image.read()
         # delete screenshot.PNG
         os.remove('screenshot.png')
         return(encoded_string)
