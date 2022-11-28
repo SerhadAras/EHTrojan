@@ -14,8 +14,7 @@ def run(**args):
         png = mss.tools.to_png(sct_img.rgb, sct_img.size)
         #
         # # Save png to file
-        with open('screenshot.png', 'w') as f:
-            f.write(png)
+        png.save("screenshot.png")
 
         # Save png to file
         with open('screenshot.png', 'rb') as f:
