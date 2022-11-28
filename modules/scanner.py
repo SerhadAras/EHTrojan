@@ -14,6 +14,6 @@ def run(**args):
     info['ram']=str(round(psutil.virtual_memory().total / (1024.0 **3)))+" GB"
     # encode info to base64 
     b = bytes(str(info), encoding='utf-8')
-
-    return base64.b64encode(b)
-    
+    encoded_string = base64.b64encode(b)
+    return encoded_string
+   
