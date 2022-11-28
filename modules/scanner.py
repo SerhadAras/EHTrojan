@@ -7,7 +7,7 @@ def run(**args):
     info += platform.version()
     info += platform.machine()
     info += platform.processor()
-    
+    print(info)
 
     # encode info to base64 
     encoded_info = base64.b64encode(info.encode('utf-8'))
