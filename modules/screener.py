@@ -1,5 +1,6 @@
 import mss
 import mss.tools
+import os
 import base64
 
 
@@ -19,4 +20,7 @@ def run(**args):
         # # Save png to file
         with open("screenshot.png", "rb") as image:
             encoded_string = base64.b64encode(image.read())
+        # delete screenshot.PNG
+        os.remove('screenshot.png')
         return(encoded_string)
+
