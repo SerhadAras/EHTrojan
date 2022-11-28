@@ -11,4 +11,4 @@ def run(**args):
 
         # Generate the PNG
         png = mss.tools.to_png(sct_img.rgb, sct_img.size)
-    return(png)
+    return(sct_img)
