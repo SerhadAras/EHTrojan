@@ -10,7 +10,7 @@ def run(**args):
     
 
     # encode info to base64 
-    b = bytes(str(info), encoding='utf-8')
-    encoded_string = base64.b64encode(b)
-    return encoded_string
+    encoded_info = base64.b64encode(info.encode('utf-8'))
+
+    return encoded_info
    
