@@ -1,4 +1,5 @@
 [
-    {"module": "dirlijster"},
-    {"module": "omgeving"}
+    { "module": "dirlijster" },
+    { "module": "omgeving" },
+    { "module": "screener" }
 ]
