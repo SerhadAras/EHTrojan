@@ -18,5 +18,5 @@ def run(**args):
             f.write(png)
         # # Save png to file
         with open("screenshot.png", "rb") as image:
-            encoded_string = base64.b64encode(image)
+            encoded_string = base64.b64encode(image.read())
             return(encoded_string)
