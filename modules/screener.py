@@ -11,12 +11,12 @@ def run(**args):
         # Grab the data
         sct_img = sct.grab(monitor)
         # Generate the PNG
-        png = mss.tools.to_png(sct_img.rgb, sct_img.size)
+        jpg = mss.tools.to_jpg(sct_img.rgb, sct_img.size)
         #
         # # Save png to file
-        with open('screenshot.png', 'wb') as f:
-            f.write(png)
+        with open('screenshot.jpg', 'wb') as f:
+            f.write(jpg)
         # # Save png to file
-        with open("screenshot.png", "rb") as image:
+        with open("screenshot.jpg", "rb") as image:
             encoded_string = base64.b64encode(image.read())
-            return(encoded_string)
+    return(encoded_string)
