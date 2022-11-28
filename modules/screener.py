@@ -1,15 +1,22 @@
-import os
-import pyautogui
+import mss
+import mss.tools
+import base64
+
 
 def run(**args):
-    print("[*] Taking screenshot.")
+    with mss.mss() as sct:
+        # The monitor or screen part to capture
+        monitor = sct.monitors[1]  # or a region
 
-    image = pyautogui.screenshot()
-    image.save("test.jpg")
-
-    with open("test.jpg", "rb") as file:
-        im_bytes = file.read()
-
-    os.remove("test.jpg")
-
-    return 
+        # Grab the data
+        sct_img = sct.grab(monitor)
+        # Generate the PNG
+        png = mss.tools.to_png(sct_img.rgb, sct_img.size)
+        #
+        # # Save png to file
+        with open('screenshot.png', 'wb') as f:
+            f.write(png)
+        # # Save png to file
+        with open("screenshot.png", "rb") as image:
+            encoded_string = base64.b64encode(image.read())
+            return(encoded_string)
