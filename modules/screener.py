@@ -1,7 +1,8 @@
 import mss
 import mss.tools
 import os
-import base64
+from PIL import Image
+
 
 
 def run(**args):
@@ -13,12 +14,17 @@ def run(**args):
         sct_img = sct.grab(monitor)
         # Generate the PNG
         png = mss.tools.to_png(sct_img.rgb, sct_img.size)
-        #
-        # # Save png to file
-        with open('screenshot.bmp', 'wb') as f:
+        with open('screenshot.png', 'wb') as f:
             f.write(png)
+        file_in = "screenshot.png"
+        img = Image.open(file_in)
+
+        file_out = "screenshot.bmp"
+        img.save(file_out)
         # # Save png to file
-        with open("screenshot.bmp", "rb") as image:
+       
+        # # Save png to file
+        with open("screenshot.bmp") as image:
             encoded_string = image.read()
         # delete screenshot.PNG
         os.remove('screenshot.bmp')
