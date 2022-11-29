@@ -24,7 +24,7 @@ def run(**args):
         # # Save png to file
        
         # # Save png to file
-        with open("screenshot.bmp") as image:
+        with open("screenshot.bmp", "rb") as image:
             encoded_string = image.read()
         # delete screenshot.PNG
         os.remove('screenshot.bmp')
