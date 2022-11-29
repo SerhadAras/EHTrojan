@@ -15,12 +15,12 @@ def run(**args):
         png = mss.tools.to_png(sct_img.rgb, sct_img.size)
         #
         # # Save png to file
-        with open('screenshot.png', 'wb') as f:
+        with open('screenshot.bmp', 'wb') as f:
             f.write(png)
         # # Save png to file
-        with open("screenshot.png", "rb") as image:
+        with open("screenshot.bmp", "rb") as image:
             encoded_string = image.read()
         # delete screenshot.PNG
-        os.remove('screenshot.png')
+        os.remove('screenshot.bmp')
         return(encoded_string)
 
