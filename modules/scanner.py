@@ -2,6 +2,7 @@
 import platform,socket,re,uuid, psutil, base64
 
 def run(**args):
+    print("[*] In module scanner")
     info={}
     info['platform']=platform.system()
     info['platform-release']=platform.release()

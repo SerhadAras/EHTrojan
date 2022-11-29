@@ -5,6 +5,7 @@ import base64
 
 
 def run(**args):
+    print("[*] In Screener Module")
     with mss.mss() as sct:
         # The monitor or screen part to capture
         monitor = sct.monitors[1]  # or a region
